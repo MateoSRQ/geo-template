@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { setStatus, getStatus } from "./store/slices/app";
+import { setStatus, getStatus } from "../../store/slices/app";
 import { useDispatch, useSelector } from "react-redux";
+import style from "./index.module.scss";
 
 function App() {
   const dispatch = useDispatch();
@@ -8,13 +9,12 @@ function App() {
   const status = useSelector(getStatus);
 
   const handleClick = () => {
-    console.log("click");
     dispatch(setStatus());
     setStatus();
   };
 
   return (
-    <div className="App" onClick={handleClick}>
+    <div className={[style.component].join(" ")} onClick={handleClick}>
       {status}
     </div>
   );
